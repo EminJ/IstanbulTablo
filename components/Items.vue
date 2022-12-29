@@ -52,7 +52,7 @@ let social=ref([
         <span>Istanbul Tablo ev dekorasyon ürünleri kaliteyi sizlerle buluşturur.</span>
         <div class="w-auto h-auto flex mt-5">
             <template v-for="item in menuitems">
-                <a :href=item.link class="w-56 h-72 bg-slate-300 m-10 transition-all hover:scale-105 hover:text-green-600">
+                <a :href=item.link class="w-56 h-72 m-10 transition-all hover:scale-105 hover:text-green-600">
                     <img :src=item.img class="w-full">
                     <p class="text-xl text-center">{{ item.title }}</p>
                 </a>
