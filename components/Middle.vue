@@ -37,7 +37,7 @@ const chance = () => {
 <template>
     <div class="w-full h-auto pt-20">
         <div class="flex justify-around">
-            <div class="mt-20 w-650 h-auto bg-gray-600 radiusoval transition-all overflow-hidden max-xl:max-w-sm max-md:hidden" :style="classObject">
+            <div class="mt-20 w-650 h-auto radiusoval transition-all overflow-hidden max-xl:max-w-sm max-md:hidden" :style="classObject">
                 <div
                     class="m-96 max-xl:mt-80 max-xl:ml-64 absolute w-5 h-5 border-solid border-2 border-green-200 rounded-full flex justify-center items-center">
                     <div class="dotted-info w-2 h-2 bg-green-100 rounded-full">
@@ -61,13 +61,6 @@ const chance = () => {
             </div>
         </div>
         <a @click="chance" class="bx bx-right-arrow-alt text-4xl float-right mr-10 mt-5 text-gray-800 hover:text-black"></a>
-        <div class="mouse_scroll">
-            <div class="hidden">
-                <span class="m_scroll_arrows unu"></span>
-                <span class="m_scroll_arrows doi"></span>
-                <span class="m_scroll_arrows trei"></span>
-            </div>
-        </div>
     </div>
 </template>
 <style>
@@ -92,109 +85,4 @@ const chance = () => {
 .min-h-2xl{
     height: 600px;
 }
-.mouse_scroll, .mouse_scroll:before, .mouse_scroll:after {
-  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
- }
-
-
-.mouse_scroll {
-	display: block;
-	margin: 0 auto;
-	width: 24px;
-	height: 100px;
-	margin-top: 125px;
-}
-
-
-.m_scroll_arrows
-{
-  display: block;
-  width: 5px;
-  height: 5px;
-  -ms-transform: rotate(45deg); /* IE 9 */
-  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
-  transform: rotate(45deg);
-   
-  border-right: 2px solid rgb(0, 0, 0);
-  border-bottom: 2px solid rgb(0, 0, 0);
-  margin: 0 0 3px 4px;
-  
-  width: 16px;
-  height: 16px;
-}
-
-
-.unu
-{
-  margin-top: 1px;
-}
-
-.unu, .doi, .trei
-{
-    -webkit-animation: mouse-scroll 1s infinite;
-    -moz-animation: mouse-scroll 1s infinite;
-    animation: mouse-scroll 1s infinite;
-  
-}
-
-.unu
-{
-  -webkit-animation-delay: .1s;
-  -moz-animation-delay: .1s;
-  -webkit-animation-direction: alternate;
-  
-  animation-direction: alternate;
-  animation-delay: alternate;
-}
-
-.doi
-{
-  -webkit-animation-delay: .2s;
-  -moz-animation-delay: .2s;
-  -webkit-animation-direction: alternate;
-  
-  animation-delay: .2s;
-  animation-direction: alternate;
-  
-  margin-top: -6px;
-}
-
-.trei
-{
-  -webkit-animation-delay: .3s;
-  -moz-animation-delay: .3s;
-  -webkit-animation-direction: alternate;
-  
-  animation-delay: .3s;
-  animation-direction: alternate;
-  
-  
-  margin-top: -6px;
-}
-
-@-webkit-keyframes mouse-scroll {
-
-  0%   { opacity: 0;}
-  50%  { opacity: .5;}
-  100% { opacity: 1;}
-}
-@-moz-keyframes mouse-scroll {
-
-  0%   { opacity: 0; }
-  50%  { opacity: .5; }
-  100% { opacity: 1; }
-}
-@-o-keyframes mouse-scroll {
-
-  0%   { opacity: 0; }
-  50%  { opacity: .5; }
-  100% { opacity: 1; }
-}
-@keyframes mouse-scroll {
-
-  0%   { opacity: 0; }
-  50%  { opacity: .5; }
-  100% { opacity: 1; }
-}
-
 </style>

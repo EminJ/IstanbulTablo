@@ -1,60 +1,52 @@
 <script setup>
-import Navbar from '../components/Navbar.vue'
-import Footer from '../components/Footers.vue'
-import axios from "axios";
-import { ref } from 'vue';
-let close = ref(true);
-let comments = ref([
-    {
-        img: '/images/comments/mehmet_guleryuz.jpg',
-        name: 'Mehmet Güleryüz',
-        comment: 'Merhaba, ben Istanbul Tablo sistemini kullandım ve gerçekten memnun kaldım. Öncelikle, kaliteli tabloların çeşitliliği beni çok etkiledi. İstediğim her türlü tablo bulabildim ve sipariş vermek de çok kolaydı.',
-        stars: '5',
-        date: '11/22/2020'
-    },
-    {
-        img: '/images/comments/22012021224710-523cbbcc-da74-430a-b3cb-51fb468b00c2-cs.jpg',
-        name: 'Muhsin Kut',
-        comment: 'Müşteri temsilcileri çok yardımsever ve her zaman sorularıma cevap verdiler. Özel siparişlerim için de hızlı bir şekilde cevap aldım ve tablonun teslimatı da çok hızlı oldu.',
-        stars: '5',
-        date: '6/12/2021'
-    },
-    {
-        img: '/images/comments/06022021000614-83b3f705-494e-44b6-8082-bb8d701367e4-cs.jpg',
-        name: 'Tülay Tura Börteçene',
-        comment: 'Genel olarak, Istanbul Tablo sistemini tavsiye ederim. Kaliteli tablolar ve mükemmel hizmet için bu sistemi tercih etmelisiniz.',
-        stars: '4',
-        date: '1/05/2019'
-    },
-    {
-        img: '/images/comments/adnancoker.jpg',
-        name: 'Adnan Çoker',
-        comment: 'Ben bir ressam ve İstanbul Tablo sistemine müşteri olarak ulaştım. İstanbul Tablo nun sunmuş olduğu tablolar gerçekten çok güzel ve profesyonelce yapılmış. Sipariş ettiğim tablo, beklentilerimi aştı ve evime mükemmel bir dokunuş oldu.',
-        stars: '5',
-        date: '9/01/2018'
-    },
-]);
-const log_pass = ref('')
-const log_mail = ref('')
-const log_error = ref('')
-const reg_error = ref('')
-const reg_name = ref('')
-const reg_mail = ref('')
-const reg_pass = ref('')
-const login = () => {
-    axios.request({ method: 'POST', url: '/api/login', data: '{"email":"' + log_mail.value + '","password":"' + log_pass.value + '"}' }).then(function (response) {
-        console.log(response.data);
-    }).catch(function (error) {
-        log_error.value = error.response.data
-    });
-}
-const register = () => {
-    axios.request({ method: 'POST', url: '/api/login/new', data: '{"name":"' + reg_name.value + '","email":"' + reg_mail.value + '","password":"' + reg_pass.value + '"}' }).then(function (response) {
-        console.log(response.data);
-    }).catch(function (error) {
-        reg_error.value = error.response.data
-    });
-}
+    import Navbar from '../components/Navbar.vue'
+    import Footer from '../components/Footers.vue'
+    import { ref } from 'vue';
+    let close = ref(true);
+    let comments = ref([
+        {
+            img: '/images/comments/mehmet_guleryuz.jpg',
+            name: 'Mehmet Güleryüz',
+            comment: 'Merhaba, ben Istanbul Tablo sistemini kullandım ve gerçekten memnun kaldım. Öncelikle, kaliteli tabloların çeşitliliği beni çok etkiledi. İstediğim her türlü tablo bulabildim ve sipariş vermek de çok kolaydı.',
+            stars: '5',
+            date: '11/22/2020'
+        },
+        {
+            img: '/images/comments/22012021224710-523cbbcc-da74-430a-b3cb-51fb468b00c2-cs.jpg',
+            name: 'Muhsin Kut',
+            comment: 'Müşteri temsilcileri çok yardımsever ve her zaman sorularıma cevap verdiler. Özel siparişlerim için de hızlı bir şekilde cevap aldım ve tablonun teslimatı da çok hızlı oldu.',
+            stars: '5',
+            date: '6/12/2021'
+        },
+        {
+            img: '/images/comments/06022021000614-83b3f705-494e-44b6-8082-bb8d701367e4-cs.jpg',
+            name: 'Tülay Tura Börteçene',
+            comment: 'Genel olarak, Istanbul Tablo sistemini tavsiye ederim. Kaliteli tablolar ve mükemmel hizmet için bu sistemi tercih etmelisiniz.',
+            stars: '4',
+            date: '1/05/2019'
+        },
+        {
+            img: '/images/comments/adnancoker.jpg',
+            name: 'Adnan Çoker',
+            comment: 'Ben bir ressam ve İstanbul Tablo sistemine müşteri olarak ulaştım. İstanbul Tablo nun sunmuş olduğu tablolar gerçekten çok güzel ve profesyonelce yapılmış. Sipariş ettiğim tablo, beklentilerimi aştı ve evime mükemmel bir dokunuş oldu.',
+            stars: '5',
+            date: '9/01/2018'
+        },
+    ]);
+    const log_pass = ref('')
+    const log_mail = ref('')
+    const log_error = ref('')
+    const reg_error = ref('')
+    const reg_name = ref('')
+    const reg_mail = ref('')
+    const reg_pass = ref('')
+
+    const login = () => {
+    }
+    const register = () => {  
+        
+    }
+    
 </script>
 <template>
     <div>
@@ -76,11 +68,11 @@ const register = () => {
                 <div v-if="close" class="p-7 h-auto rounded-md bg-white border-2 border-slate-600 mx-auto">
                     <p class=" text-slate-500 text-lg font-bold">Istanbul Tablo Giriş</p>
                     <p class="mt-4 font-bold text-slate-600">E-Posta Adresi</p>
-                    <input :value="log_mail"
+                    <input v-model="log_mail"
                         class="w-full h-8 bg-slate-200 rounded-sm focus:outline-none focus:border-2 transition-all focus:border-b-slate-500 focus:bg-slate-100"
                         type="text" name="e-mail">
                     <p class="mt-4 font-bold text-slate-600">Şifre Girişi</p>
-                    <input :value="log_pass"
+                    <input v-model="log_pass"
                         class="w-full h-8 bg-slate-200 rounded-sm focus:outline-none focus:border-2 transition-all focus:border-b-slate-500 focus:bg-slate-100"
                         type="text" name="e-mail">
                     <p class="mt-4 w-full">
@@ -88,7 +80,7 @@ const register = () => {
                                 class="text-sm text-green-600 ml-3">Şifrenizi mi unuttunuz?</a></span>
                     </p>
                     <p class="mt-4 w-full">
-                        <button @click.prevent="login"
+                        <button @click="login"
                             class="w-full h-8 bg-slate-500 text-white font-bold rounded-sm hover:bg-slate-400">Giriş
                             Yap</button>
                     </p>
@@ -111,15 +103,15 @@ const register = () => {
                 <div v-else class="p-7 h-auto rounded-md bg-white border-2 border-slate-600 m-auto">
                     <p class=" text-slate-500 text-lg font-bold">Istanbul Tablo Kayıt</p>
                     <p class="mt-4 font-bold text-slate-600">Ad, Soyad Girişi</p>
-                    <input :value="reg_name"
+                    <input v-model="reg_name"
                         class="w-full h-8 bg-slate-200 rounded-sm focus:outline-none focus:border-2 transition-all focus:border-b-slate-500 focus:bg-slate-100"
                         type="text" name="e-mail">
                     <p class="mt-4 font-bold text-slate-600">E-Posta Adresi</p>
-                    <input :value="reg_mail"
+                    <input v-model="reg_mail"
                         class="w-full h-8 bg-slate-200 rounded-sm focus:outline-none focus:border-2 transition-all focus:border-b-slate-500 focus:bg-slate-100"
                         type="text" name="e-mail">
                     <p class="mt-4 font-bold text-slate-600">Şifre Girişi</p>
-                    <input :value="reg_pass"
+                    <input v-model="reg_pass"
                         class="w-full h-8 bg-slate-200 rounded-sm focus:outline-none focus:border-2 transition-all focus:border-b-slate-500 focus:bg-slate-100"
                         type="text" name="e-mail">
                     <p class="mt-4 w-full">

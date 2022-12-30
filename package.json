@@ -1,31 +1,25 @@
 {
-  "name": "IstanbulTablo",
-  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
     "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "nuxt": "3.0.0",
+    "postcss": "^8.4.20",
+    "tailwindcss": "^3.2.4"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
-    "axios": "^1.2.2",
     "cookie-parser": "^1.4.6",
-    "core-js": "^3.27.0",
     "express": "^4.18.2",
-    "mongodb": "^4.13.0",
+    "http-errors": "^2.0.0",
     "mongoose": "^6.8.2",
     "morgan": "^1.10.0",
-    "nuxt": "^2.15.8",
-    "vue": "^2.7.10",
-    "vue-server-renderer": "^2.7.10",
-    "vue-template-compiler": "^2.7.10"
-  },
-  "devDependencies": {
-    "@nuxt/postcss8": "^1.1.3",
-    "autoprefixer": "^10.4.13",
-    "postcss": "^8.4.20",
-    "tailwindcss": "^3.2.4"
+    "path": "^0.12.7"
   }
 }

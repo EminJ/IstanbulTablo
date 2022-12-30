@@ -47,7 +47,7 @@ let social=ref([
 ]);
 </script>
 <template>
-    <div class="w-full m-auto top-0 h-auto flex flex-col items-center content-center">
+    <div class="w-full m-auto top-0 h-auto flex flex-col items-center content-center mt-32">
         <p class="text-3xl p-5">ÖNE ÇIKAN KATEGORİLER</p>
         <span>Istanbul Tablo ev dekorasyon ürünleri kaliteyi sizlerle buluşturur.</span>
         <div class="w-auto h-auto flex mt-5">
