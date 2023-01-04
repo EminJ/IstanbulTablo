@@ -44,7 +44,16 @@
     const login = () => {
     }
     const register = () => {  
-        
+        const options = {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: '{"name":"asdasdasdasd","email":"muhammetegulesci@gmail.com","password":"qwe419a87s4dD49"}'
+        };
+
+        fetch('http://localhost:3000/api/users/create?=', options)
+          .then(response => response.json())
+          .then(response => console.log(response.message))
+          .catch(err => console.error(err));
     }
     
 </script>
