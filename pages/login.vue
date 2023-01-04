@@ -53,6 +53,7 @@
         <Navbar />
         <div class="w-full pt-20 m-auto top-0 h-full flex justify-center pb-10">
             <div class="w-2/5 h-auto text-lg mr-10">
+                <img src="/images/menu/3236267.jpg" w>
                 <img src="/images/IST.png" alt="alt logo" width="200" class="mb-6">
                 <p>Merhaba! Istanbul Tablo olarak, müşterilerimize en kaliteli tablo çözümlerini sunmayı hedefliyoruz.
                     Özel tasarım tablo çalışmalarımızla müşterilerimizin isteklerini en iyi şekilde karşılıyor ve
