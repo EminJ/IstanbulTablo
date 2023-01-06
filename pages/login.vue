@@ -1,61 +1,68 @@
 <script setup>
-    import Navbar from '../components/Navbar.vue'
-    import Footer from '../components/Footers.vue'
-    import { ref } from 'vue';
-    let close = ref(true);
-    let comments = ref([
-        {
-            img: '/images/comments/mehmet_guleryuz.jpg',
-            name: 'Mehmet Güleryüz',
-            comment: 'Merhaba, ben Istanbul Tablo sistemini kullandım ve gerçekten memnun kaldım. Öncelikle, kaliteli tabloların çeşitliliği beni çok etkiledi. İstediğim her türlü tablo bulabildim ve sipariş vermek de çok kolaydı.',
-            stars: '5',
-            date: '11/22/2020'
-        },
-        {
-            img: '/images/comments/22012021224710-523cbbcc-da74-430a-b3cb-51fb468b00c2-cs.jpg',
-            name: 'Muhsin Kut',
-            comment: 'Müşteri temsilcileri çok yardımsever ve her zaman sorularıma cevap verdiler. Özel siparişlerim için de hızlı bir şekilde cevap aldım ve tablonun teslimatı da çok hızlı oldu.',
-            stars: '5',
-            date: '6/12/2021'
-        },
-        {
-            img: '/images/comments/06022021000614-83b3f705-494e-44b6-8082-bb8d701367e4-cs.jpg',
-            name: 'Tülay Tura Börteçene',
-            comment: 'Genel olarak, Istanbul Tablo sistemini tavsiye ederim. Kaliteli tablolar ve mükemmel hizmet için bu sistemi tercih etmelisiniz.',
-            stars: '4',
-            date: '1/05/2019'
-        },
-        {
-            img: '/images/comments/adnancoker.jpg',
-            name: 'Adnan Çoker',
-            comment: 'Ben bir ressam ve İstanbul Tablo sistemine müşteri olarak ulaştım. İstanbul Tablo nun sunmuş olduğu tablolar gerçekten çok güzel ve profesyonelce yapılmış. Sipariş ettiğim tablo, beklentilerimi aştı ve evime mükemmel bir dokunuş oldu.',
-            stars: '5',
-            date: '9/01/2018'
-        },
-    ]);
-    const log_pass = ref('')
-    const log_mail = ref('')
-    const log_error = ref('')
-    const reg_error = ref('')
-    const reg_name = ref('')
-    const reg_mail = ref('')
-    const reg_pass = ref('')
+import Navbar from '../components/Navbar.vue'
+import Footer from '../components/Footers.vue'
+import Cookies from "cookie-universal";
+import { ref } from 'vue';
+let close = ref(true);
+definePageMeta({
+  middleware: ["auth"]
+  // or middleware: 'auth'
+})
+let comments = ref([
+    {
+        img: '/images/comments/mehmet_guleryuz.jpg',
+        name: 'Mehmet Güleryüz',
+        comment: 'Merhaba, ben Istanbul Tablo sistemini kullandım ve gerçekten memnun kaldım. Öncelikle, kaliteli tabloların çeşitliliği beni çok etkiledi. İstediğim her türlü tablo bulabildim ve sipariş vermek de çok kolaydı.',
+        stars: '5',
+        date: '11/22/2020'
+    },
+    {
+        img: '/images/comments/22012021224710-523cbbcc-da74-430a-b3cb-51fb468b00c2-cs.jpg',
+        name: 'Muhsin Kut',
+        comment: 'Müşteri temsilcileri çok yardımsever ve her zaman sorularıma cevap verdiler. Özel siparişlerim için de hızlı bir şekilde cevap aldım ve tablonun teslimatı da çok hızlı oldu.',
+        stars: '5',
+        date: '6/12/2021'
+    },
+    {
+        img: '/images/comments/06022021000614-83b3f705-494e-44b6-8082-bb8d701367e4-cs.jpg',
+        name: 'Tülay Tura Börteçene',
+        comment: 'Genel olarak, Istanbul Tablo sistemini tavsiye ederim. Kaliteli tablolar ve mükemmel hizmet için bu sistemi tercih etmelisiniz.',
+        stars: '4',
+        date: '1/05/2019'
+    },
+    {
+        img: '/images/comments/adnancoker.jpg',
+        name: 'Adnan Çoker',
+        comment: 'Ben bir ressam ve İstanbul Tablo sistemine müşteri olarak ulaştım. İstanbul Tablo nun sunmuş olduğu tablolar gerçekten çok güzel ve profesyonelce yapılmış. Sipariş ettiğim tablo, beklentilerimi aştı ve evime mükemmel bir dokunuş oldu.',
+        stars: '5',
+        date: '9/01/2018'
+    },
+]);
+const log_pass = ref('')
+const log_mail = ref('')
+const log_error = ref('')
+const reg_error = ref('')
+const reg_name = ref('')
+const reg_mail = ref('')
+const reg_pass = ref('')
 
-    const login = () => {
-    }
-    const register = () => {  
-        const options = {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: '{"name":"asdasdasdasd","email":"muhammetegulesci@gmail.com","password":"qwe419a87s4dD49"}'
-        };
+const login = () => {
+    document.cookie = "username=John Doe";
+}
+const register = () => {
+    const options = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: '{"name":"asdasdasdasd","email":"muhammetegulesci@gmail.com","password":"qwe419a87s4dD49"}'
+    };
 
-        fetch('http://localhost:3000/api/users/create?=', options)
-          .then(response => response.json())
-          .then(response => console.log(response.message))
-          .catch(err => console.error(err));
-    }
-    
+    fetch('http://localhost:3000/api/users/create?=', options)
+        .then(response => response.json())
+        .then(response => console.log(response.message))
+        .catch(err => console.error(err));
+    Cookies.set("name", "value", { expires: 7 });
+}
+
 </script>
 <template>
     <div>
@@ -86,8 +93,7 @@
                         class="w-full h-8 bg-slate-200 rounded-sm focus:outline-none focus:border-2 transition-all focus:border-b-slate-500 focus:bg-slate-100"
                         type="text" name="e-mail">
                     <p class="mt-4 w-full">
-                        <input type="checkbox" name="beni_unutma"> <span>Beni Unutma <a href="#"
-                                class="text-sm text-green-600 ml-3">Şifrenizi mi unuttunuz?</a></span>
+                        <a href="#" class="text-sm text-green-600 ml-3">Şifrenizi mi unuttunuz?</a>
                     </p>
                     <p class="mt-4 w-full">
                         <button @click="login"

@@ -1,10 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  nitro:{
-    plugins:['@/server/db/index.ts'],
-  },
   runtimeConfig:{
     mongodbUrl: process.env.MONGODB_URL,
+    secret:process.env.SECRET_KEY
   },
     app: {
         head: {

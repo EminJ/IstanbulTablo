@@ -8,7 +8,7 @@ const requestOptions = {
   };
   fetch("https://jsonplaceholder.typicode.com/posts", requestOptions)
     .then(response => response.json())
-    .then(data => (this.postId = data.id));
+    .then(data => (console.log(data.id)));
 </script>
 
 <template>
